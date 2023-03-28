@@ -1,0 +1,31 @@
+﻿@page
+@model Razor_PagesMovie.Pages.Account.DeleteModel
+
+@{
+    ViewData["Title"] = "會員資料刪除";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+<table class="table">
+<thead>
+        <tr>
+            <th>選項</th>
+            <th>姓名</th>
+            <th>電子郵件</th>
+        </tr>
+</thead>
+    <tbody>
+            @for (var i = 0; i < Model.Users.Count; i++)
+            {
+                <tr>
+                    <td><input type="checkbox" name="ids" value="@Model.Users[i].UserId" /></td>
+                    <td>@Model.Users[i].UserName</td>
+                    <td>@Model.Users[i].UserEmail</td>
+                    <input type="hidden" asp-for="@Model.Users[i].UserId" />
+                </tr>
+            }
+    </tbody>
+</table>
+    <button type="submit" class="btn btn-primary">刪除</button>
+</form>

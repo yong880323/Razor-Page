@@ -1,0 +1,34 @@
+﻿@page
+@model Razor_PagesMovie.Pages.Create.CreateModel
+
+@{
+    ViewData["Title"] = "註冊";
+}
+<h1>@ViewData["Title"]</h1>
+@if (Model.Message != null)
+{
+    <div class="alert alert-danger" role="alert">@Model.Message</div>
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Create.UserName">帳號</label>
+            <input asp-for="Create.UserName" class="form-control" />
+            <span asp-validation-for="Create.UserName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Create.UserEmail">電子信箱</label>
+            <input asp-for="Create.UserEmail" class="form-control" />
+            <span asp-validation-for="Create.UserEmail"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Create.UserPassword">密碼</label>
+            <input asp-for="Create.UserPassword" type="Create.UserPassword" class="form-control" />
+            <span asp-validation-for="Create.UserPassword"></span>
+        </div>
+        <label class="text-danger">@Html.DisplayFor(a=>a.Message)</label>
+        <input type="submit" value ="註冊" />
+    </form>
+}
+
